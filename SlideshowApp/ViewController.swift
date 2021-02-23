@@ -27,7 +27,10 @@ class ViewController: UIViewController {
     }
     // 値渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if timer != nil { //再生ボタン押下時
+            // スライド停止
+            slideStop()
+        }
         let imageViewController = segue.destination as! ImageViewController
         imageViewController.imageDetail = img_slide.image
     }
@@ -45,20 +48,12 @@ class ViewController: UIViewController {
     // 再生/一時停止 ボタン押下時
     @IBAction func slideImage(_ sender: Any) {
         // タイマー止まっている時
-        if timer == nil { //再生ボタン押下時
-            btn_back.isEnabled = false
-            btn_next.isEnabled = false
-            // 2秒毎にスライド
-            timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(slideTimer(_:)), userInfo: nil, repeats: true)
-            btn_slide.setTitle("一時停止", for: .normal)
-        }else{ //一時停止ボタン押下時
-            
-            btn_back.isEnabled = true
-            btn_next.isEnabled = true
+        if timer != nil { //再生ボタン押下時
             // スライド停止
-            timer.invalidate()
-            timer = nil
-            btn_slide.setTitle("再生", for: .normal)
+            slideStop()
+        }else{ //一時停止ボタン押下時
+            // スライド開始
+            slideStart()
         }
     }
     
@@ -70,10 +65,28 @@ class ViewController: UIViewController {
     
     //##### ファンクション ##### //
     
-    // スライド
+    // 1回スライド
     @objc func slideTimer(_ timer:Timer) {
         imageNum += 1
         updateImage()
+    }
+    
+    // スライド開始
+    func slideStart() {
+        btn_back.isEnabled = false
+        btn_next.isEnabled = false
+        // 2秒毎にスライド
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(slideTimer(_:)), userInfo: nil, repeats: true)
+        btn_slide.setTitle("一時停止", for: .normal)
+    }
+    
+    //スライド停止
+    func slideStop() {
+        btn_back.isEnabled = true
+        btn_next.isEnabled = true
+        timer.invalidate()
+        timer = nil
+        btn_slide.setTitle("再生", for: .normal)
     }
     
     // 画像情報更新

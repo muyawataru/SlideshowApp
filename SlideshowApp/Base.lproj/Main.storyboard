@@ -24,7 +24,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-F0-3cv">
-                                <rect key="frame" x="192" y="459" width="31" height="30"/>
+                                <rect key="frame" x="191.5" y="459" width="31" height="30"/>
                                 <state key="normal" title="再生"/>
                                 <connections>
                                     <action selector="slideImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5HH-sl-aUx"/>
@@ -87,7 +87,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2w-ug-fCb">
-                                <rect key="frame" x="192" y="635" width="31" height="30"/>
+                                <rect key="frame" x="191.5" y="635" width="31" height="30"/>
                                 <state key="normal" title="戻る"/>
                                 <connections>
                                     <segue destination="NPO-po-cKI" kind="unwind" unwindAction="back:" id="TjR-WJ-Rlb"/>

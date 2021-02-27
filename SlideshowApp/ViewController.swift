@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         updateImage()
     }
     
-    //##### ファンクション ##### //
+    //##### 汎用ファンクション ##### //
     
     // 1回スライド
     @objc func slideTimer(_ timer:Timer) {
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         }else if imageNum == imageNamesCount {
             imageNum = 0
         }
-        img_slide.image = UIImage(named: imageNamesArray[imageNum])
+        img_slide.image = UIImage(named: imageNamesArray[imageNum] + ".jpg")
         
     }
     
